@@ -1,5 +1,10 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+.terraform/
+terraform.tfvars
+terraform.tfstate
+terraform.tfstate.backup
+
 # compiled output
 /dist
 /tmp
