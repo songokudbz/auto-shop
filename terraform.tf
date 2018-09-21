@@ -15,6 +15,17 @@ provider "aws" {
 }
 
 #####################################################################
+## Terraform config
+#####################################################################
+terraform {
+  backend "s3" {
+    bucket="madaras-terraform-state"
+    key="terraform.tfstate"
+    region="eu-central-1"
+  }
+}
+
+#####################################################################
 ## create and configure S3 bucket
 #####################################################################
 resource "aws_s3_bucket" "testBucket" {
@@ -22,7 +33,8 @@ resource "aws_s3_bucket" "testBucket" {
   acl    = "private"
 
   tags {
-    Name            = "Terraform Test Bucket"
-    Environment = "Test"
+    Name        = "Terraform Test Bucket"
+    Environment = "Testing"
+    V           = "1.2"
   }
 }
