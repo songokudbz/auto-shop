@@ -1,6 +1,8 @@
 ################################################################
 ## declare vars, see terraform.tfvars for actual settings
 ################################################################
+variable "access_key" {}
+variable "secret_key" {}
 variable "bucket_name" {}
 variable "aws_region" {
   default = "eu-central-1"
@@ -11,6 +13,8 @@ variable "aws_region" {
 ## but we prefer a profile in ~/.aws/credentials
 #####################################################################
 provider "aws" {
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
   region     = "${var.aws_region}"
 }
 
@@ -35,6 +39,6 @@ resource "aws_s3_bucket" "testBucket" {
   tags {
     Name        = "Terraform Test Bucket"
     Environment = "Testing"
-    V           = "1.2"
+    V           = "1.3"
   }
 }
