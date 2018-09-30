@@ -1,0 +1,23 @@
+<div class="col-md-6">
+  <h2> Car Details</h2>
+  <button class="btn btn-danger" (click)="addCar()"> Add Car</button>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Car Name</th>
+      <th>Car Model</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let car of cars">
+      <td class="hidden">{{car.id}}</td>
+      <td>{{car.carName}}</td>
+      <td>{{car.carModel}}</td>
+      <td><button class="btn btn-danger" (click)="deleteCar(car)"> Delete</button>
+        <button class="btn btn-danger" (click)="editCar(car)"> Edit</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
