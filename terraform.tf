@@ -92,27 +92,9 @@ resource "aws_dynamodb_table" "cars" {
   write_capacity = "${var.ddb_default_wcu}"
   # (Required, Forces new resource) The attribute to use as the hash (partition) key. Must also be defined as an attribute
   hash_key       = "id"
-  range_key      = "carName"
   attribute {
     name = "id"
     type = "N"
-  }
-  attribute {
-    name = "carName"
-    type = "S"
-  }
-  attribute {
-    name = "carModel"
-    type = "S"
-  }
-  global_secondary_index {
-    name               = "carModel"
-    hash_key           = "carName"
-    range_key          = "carModel"
-    write_capacity     = 1
-    read_capacity      = 1
-    projection_type    = "INCLUDE"
-    non_key_attributes = ["id"]
   }
   tags {
     Name = "${var.app_name}"

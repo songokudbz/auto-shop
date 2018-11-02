@@ -6,7 +6,7 @@ import { Car } from "../model/car.model";
 @Injectable()
 export class CarService {
   constructor(private http: HttpClient) { }
-  baseUrl: string = 'http://localhost:8080/car-portal/cars';
+  baseUrl: string = 'https://kfsj04jrje.execute-api.eu-central-1.amazonaws.com/dev/cars';
 
   getCars() {
    let fakeCars = [{id: 1, carName: 'Dacia', carModel: 'Logan'},
@@ -14,8 +14,8 @@ export class CarService {
      {id: 3, carName: 'Dacia', carModel: 'Lodji'},
      {id: 4, carName: 'Skoda', carModel: 'Fabia'},
    ];
-   return of(fakeCars);
-    /* return this.http.get<User[]>(this.baseUrl); */
+   // return of(fakeCars);
+   return this.http.get<Car[]>(this.baseUrl);
   }
 
   getCarById(id: number) {
