@@ -31,7 +31,7 @@ export class ListCarsComponent implements OnInit {
 
   editCar(car: Car): void {
     localStorage.removeItem("editCarId");
-    localStorage.setItem("editcCarId", car.id.toString());
+    localStorage.setItem("editCarId", car.id.toString());
     this.router.navigate(['edit-car']);
   };
 

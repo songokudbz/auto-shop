@@ -102,3 +102,10 @@ resource "aws_dynamodb_table" "cars" {
     ManagedBy = "Terraform"
   }
 }
+
+#####################################################################
+## create ecr repository
+#####################################################################
+resource "aws_ecr_repository" "cars-ecr" {
+  name = "carshop"
+}
